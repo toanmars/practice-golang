@@ -104,8 +104,18 @@ import (
 	"fmt"
 	"time"
 )
-
-≈```
+// Hàm xử lý đơn hàng được tách ra để dễ test
+func ProcessOrder(ctx context.Context, orderID int, logChan chan<- string, workTime time.Duration) string {
+	select {
+	case <-time.After(workTime):
+		msg := fmt.Sprintf("DONE: Order %d", orderID)
+		logChan <- msg
+		return "success"
+	case <-ctx.Done():
+		return "timeout"
+	}
+}
+```
 ### 2. Viết Unit Test (main_test.go)
 Chúng ta sẽ dùng thư viện testing chuẩn của Go. Ta cần test 2 trường hợp:
 
