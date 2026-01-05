@@ -1,4 +1,4 @@
-# 📁 Cẩm Nang Xử Lý Concurrency trong Golang
+# 📁 Mức 5: Cẩm Nang Xử Lý Concurrency trong Golang
 
 ## 1. Race Condition (Điều kiện đua)
 **Định nghĩa:** Xảy ra khi nhiều goroutines truy cập chung một tài nguyên và có ít nhất một thao tác ghi cùng lúc.
